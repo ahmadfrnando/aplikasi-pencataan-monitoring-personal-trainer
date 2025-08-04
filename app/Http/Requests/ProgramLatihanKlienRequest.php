@@ -21,13 +21,19 @@ class ProgramLatihanKlienRequest extends FormRequest
      */
     public function rules(): array
     {
-        return [
+        $return = [
             'klien_id' => 'required|exists:klien,id',
             'nama_program' => 'required|string',
             'durasi_menit' => 'required|integer',
             'tanggal' => 'required|date',
             'keterangan' => 'nullable|string',
         ];
+
+        if ($this->isMethod('put')) {
+            $return['klien_id'] = 'nullable|exists:klien,id';
+        }
+
+        return $return;
     }
 
     public function messages()

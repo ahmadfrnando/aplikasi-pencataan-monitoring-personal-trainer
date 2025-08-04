@@ -40,8 +40,10 @@
             </div>
         </div>
         <div class="card">
-            <div class="card-header">
+            <div class="card-header d-flex justify-content-between align-items-center   ">
                 <h5 class="card-title fw-semibold">Semua Program Latihan</h5>
+                <button id="btnTambah" data-bs-toggle="modal" data-bs-target="#tambahProgramLatihan" data-id="{{ $klien->id }}" class="btn btn-primary"><i class="ti ti-plus"></i> Tambah Program Latihan</button>
+                @include('pages.program-latihan.create-modal-form')
             </div>
             <div class="card-body">
                 <div class="table-responsive">
@@ -64,6 +66,7 @@
             </div>
         </div>
     </div>
+    @include('pages.program-latihan.edit-modal-form')
 </div>
 @push('scripts')
 <script type='text/javascript'>
@@ -116,13 +119,46 @@
                 searchable: false
             }
         ];
-        var table = initializeDataTableParams(selector, route, columns);
+        let table = initializeDataTableParams(selector, route, columns);
 
-        $(document).on('click', '#delete', function() {
-            var id = $(this).data('id');
-            var route = "{{ route('program-latihan-klien.destroy', ':id') }}";
-            route = route.replace(':id', id);
-            deleteDataAjax(route, table);
+        let formSelector = '#submitForm';
+        let modal = '#tambahProgramLatihan';
+        let actionUrl = "{{ route('program-latihan-klien.store') }}";
+        let successMessage = 'Data berhasil disimpan!';
+        let redirectUrl = "{{ route('program-latihan-klien.show', $klien->id) }}";
+        let tableSelector = '.data-table';
+        submitFormAjaxModal(formSelector, actionUrl, successMessage, modal);
+
+        $(document).on('click', '#btnEdit', function() {
+            let formSelectorEdit = '#updateForm';
+            let modalEdit = $(this).data('bs-target');
+            let id = $(this).data('id');
+            let actionUrlEdit = "{{ route('program-latihan-klien.update', ':id') }}";
+            actionUrlEdit = actionUrlEdit.replace(':id', id);
+            let successMessageEdit = 'Data berhasil diubah!';
+            let redirectUrlEdit = "{{ route('program-latihan-klien.index') }}";
+            submitFormAjaxModal(formSelectorEdit, actionUrlEdit, successMessageEdit, modalEdit, tableSelector);
+            
+            $.ajax({
+                url: "{{ route('program-latihan-klien.edit', ':id') }}".replace(':id', id),
+                type: 'GET',
+                success: function(response) {
+                    $(formSelectorEdit).find('#nama_program').val(response.program.nama_program);
+                    $(formSelectorEdit).find('#tanggal').val(response.program.tanggal);
+                    $(formSelectorEdit).find('#durasi_menit').val(response.program.durasi_menit);
+                    $(formSelectorEdit).find('#keterangan').val(response.program.keterangan);
+                },
+                error: function(xhr) {
+                    console.error(xhr);
+                }
+            });
+        });
+
+        $(document).on('click', '#btnHapus', function() {
+            var idHapus = $(this).data('id');
+            var routeHapus = "{{ route('program-latihan-klien.destroy', ':id') }}";
+            routeHapus = routeHapus.replace(':id', idHapus);
+            deleteDataAjax(routeHapus, table);
         });
     });
 </script>

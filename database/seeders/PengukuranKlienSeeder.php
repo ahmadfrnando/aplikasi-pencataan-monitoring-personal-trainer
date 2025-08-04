@@ -12,6 +12,6 @@ class PengukuranKlienSeeder extends Seeder
      */
     public function run(): void
     {
-        \App\Models\PengukuranKlien::factory(3)->create();
+        \App\Models\PengukuranKlien::factory(10)->create();
     }
 }

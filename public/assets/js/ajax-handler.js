@@ -35,7 +35,80 @@ function submitFormAjax(formSelector, actionUrl, successMessage, redirectUrl) {
     });
 }
 
+function submitFormAjaxModal(formSelector, actionUrl, successMessage, modalSelector, tableSelector) {
+    console.log('berhasil-modal');
+    var toastMixin = Swal.mixin({
+            toast: true,
+            icon: 'success',
+            title: 'General Title',
+            animation: false,
+            position: 'top-right',
+            showConfirmButton: false,
+            timer: 3000,
+            timerProgressBar: true,
+            didOpen: (toast) => {
+                toast.addEventListener('mouseenter', Swal.stopTimer)
+                toast.addEventListener('mouseleave', Swal.resumeTimer)
+            }
+        });
+    var toastMixinError = Swal.mixin({
+            toast: true,
+            icon: 'error',
+            title: 'General Title',
+            animation: false,
+            position: 'top-right',
+            showConfirmButton: false,
+            timer: 3000,
+            timerProgressBar: true,
+            didOpen: (toast) => {
+                toast.addEventListener('mouseenter', Swal.stopTimer)
+                toast.addEventListener('mouseleave', Swal.resumeTimer)
+            }
+        });
+    $(formSelector).on('submit', function(e) {
+        console.log(actionUrl);
+        e.preventDefault();
+        
+        let form = $(this);
+        $.ajax({
+            url: actionUrl,
+            method: 'POST',
+            data: form.serialize(),
+            headers: {
+                'X-CSRF-TOKEN': $('input[name="_token"]').val()
+            },
+            success: function(response) {
+                console.log('berhasil-modal-sukses');
+                $(modalSelector).find('[data-bs-dismiss="modal"]').trigger('click');
+                $(tableSelector).DataTable().ajax.reload(); 
+                toastMixin.fire({
+                        animation: true,
+                        title: successMessage || `${response.message}`,
+                    });
+            },
+            error: function(xhr) {
+                console.log('berhasil-modal-error');
+                if (xhr.status === 422) {
+                    let res = xhr.responseJSON;
+                    let errorMessages = Object.values(res.errors).flat().join('\n');
+                    toastMixinError.fire({
+                        animation: true,
+                        title: errorMessages || 'Terjadi kesalahan.',
+                    });
+                } else {
+                    Swal.fire('Gagal', xhr.responseJSON?.message || 'Terjadi kesalahan.', 'error');
+                    toastMixinError.fire({
+                        animation: true,
+                        title: xhr.responseJSON?.message || 'Terjadi kesalahan.',
+                    });
+                }
+            }
+        })
+    });
+}
+
 function submitFormUploadAjax(formSelector, actionUrl, successMessage, redirectUrl) {
+    
     $(formSelector).on('submit', function(e) {
         e.preventDefault();
         // let form = $(this);
@@ -75,7 +148,7 @@ function submitFormUploadAjax(formSelector, actionUrl, successMessage, redirectU
     });
 }
 
-function submitFormAjaxModal(formSelector, actionUrl,successMessage, modalSelector, tableSelector, redirectUrl) {
+function submitFormModal(formSelector, actionUrl,successMessage, modalSelector, tableSelector, redirectUrl) {
     console.log('berhasil');
     var toastMixin = Swal.mixin({
             toast: true,
@@ -148,6 +221,7 @@ function submitFormAjaxModal(formSelector, actionUrl,successMessage, modalSelect
 
 
 function deleteDataAjax(url, table) {
+    console.log('berhasil-delete');
     Swal.fire({
         title: 'Apakah anda yakin?',
         text: "Data yang dihapus tidak dapat dikembalikan!",

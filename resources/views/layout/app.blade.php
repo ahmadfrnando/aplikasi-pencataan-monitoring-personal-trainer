@@ -167,10 +167,10 @@
                         </li>
                         <li class="sidebar-item">
                             <a class="sidebar-link justify-content-between"
-                                href="{{ route('dashboard') }}" aria-expanded="false">
+                                href="{{ route('monitoring.index') }}" aria-expanded="false">
                                 <div class="d-flex align-items-center gap-3">
                                     <span class="d-flex">
-                                        <i class="ti ti-shopping-cart"></i>
+                                        <i class="ti ti-device-desktop"></i>
                                     </span>
                                     <span class="hide-menu">Monitoring</span>
                                 </div>
@@ -181,7 +181,7 @@
                                 href="{{ route('dashboard') }}" aria-expanded="false">
                                 <div class="d-flex align-items-center gap-3">
                                     <span class="d-flex">
-                                        <i class="ti ti-shopping-cart"></i>
+                                        <i class="ti ti-file-analytics"></i>
                                     </span>
                                     <span class="hide-menu">Laporan</span>
                                 </div>
@@ -192,7 +192,7 @@
                                 href="{{ route('dashboard') }}" aria-expanded="false">
                                 <div class="d-flex align-items-center gap-3">
                                     <span class="d-flex">
-                                        <i class="ti ti-shopping-cart"></i>
+                                        <i class="ti ti-settings"></i>
                                     </span>
                                     <span class="hide-menu">Pengaturan</span>
                                 </div>
@@ -281,7 +281,6 @@
     <script src="{{ asset('assets/libs/bootstrap/dist/js/bootstrap.bundle.min.js') }}"></script>
     <script src="{{ asset('assets/js/sidebarmenu.js') }}"></script>
     <script src="{{ asset('assets/js/app.min.js') }}"></script>
-    <script src="{{ asset('assets/libs/apexcharts/dist/apexcharts.min.js') }}"></script>
     <script src="{{ asset('assets/libs/simplebar/dist/simplebar.js') }}"></script>
     <script src="{{ asset('assets/js/dashboard.js') }}"></script>
     <script src="{{ asset('assets/js/ajax-handler.js') }}"></script>

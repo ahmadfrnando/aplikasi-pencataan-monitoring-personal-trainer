@@ -15,7 +15,7 @@ class KlienController extends Controller
     public function index(Request $request)
     {
         if ($request->ajax()) {
-            $data = Klien::select('*')->where('user_id', auth()->id());
+            $data = Klien::select('*')->where('user_id', auth()->id())->orderBy('nama', 'asc');
             return DataTables::of($data)
                 ->addIndexColumn()
                 ->addColumn('action', function ($row) {

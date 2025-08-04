@@ -138,7 +138,7 @@
         let actionUrl = "{{ route('program.pendinginan.store') }}";
         let successMessage = 'Data berhasil disimpan!';
         let redirectUrl = "{{ route('program.pendinginan.index', $program->id) }}";
-        submitFormAjaxModal(formSelector, actionUrl, successMessage, modal, table, redirectUrl);
+        submitFormModal(formSelector, actionUrl, successMessage, modal, table, redirectUrl);
 
         $(document).on('click', '#btnEdit', function() {
             let formSelectorEdit = '#updateForm';
@@ -148,7 +148,7 @@
             actionUrlEdit = actionUrlEdit.replace(':id', id);
             let successMessageEdit = 'Data berhasil diubah!';
             let redirectUrlEdit = "{{ route('program.pendinginan.index', $program->id) }}";
-            submitFormAjaxModal(formSelectorEdit, actionUrlEdit, successMessageEdit, modalEdit, table, redirectUrlEdit);
+            submitFormModal(formSelectorEdit, actionUrlEdit, successMessageEdit, modalEdit, table, redirectUrlEdit);
         });
 
         $(document).on('click', '.checkbox', function() {

@@ -8,6 +8,7 @@ use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\Auth\VerifyEmailController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\KlienController;
+use App\Http\Controllers\MonitoringController;
 use App\Http\Controllers\PengukuranKlienController;
 use App\Http\Controllers\ProgramLatihanController;
 use App\Http\Controllers\ProgramLatihanIntiController;
@@ -74,12 +75,12 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::post('/pengukuran-klien/update-data', [PengukuranKlienController::class, 'update'])->name('klien.pengukuran.update-data');
     
     Route::resource('/program-latihan-klien', ProgramLatihanController::class);
+    Route::resource('/monitoring', MonitoringController::class);
 
     Route::get('/program-latihan-klien/pemanasan/{program}', [ProgramLatihanPemanasanController::class, 'index'])->name('program.pemanasan.index');
     Route::post('/program-latihan-klien/pemanasan/store', [ProgramLatihanPemanasanController::class, 'store'])->name('program.pemanasan.store');
     Route::put('/program-latihan-klien/pemanasan/update/{id}', [ProgramLatihanPemanasanController::class, 'update'])->name('program.pemanasan.update');
-    Route::post('/program-latihan-klien/pemanasan/update-isdone', [ProgramLatihanPemanasanController::class, 'updateIsDone'])->name('program.pemanasan.update-isdone');
-    Route::delete('/program-latihan-klien/pemanasan/{id}/destroy', [ProgramLatihanPemanasanController::class, 'destroy'])->name('program.pemanasan.destroy');
+    Route::post('/program-latihan-klien/pemanasan/update-isdone', [ProgramLatihanPemanasanController::class, 'updateIsDone'])->name('program.pemanasan.update-isdone');    
     
     Route::get('/program-latihan-klien/pendinginan/{program}', [ProgramLatihanPendinginanController::class, 'index'])->name('program.pendinginan.index');
     Route::post('/program-latihan-klien/pendinginan/store', [ProgramLatihanPendinginanController::class, 'store'])->name('program.pendinginan.store');
@@ -93,9 +94,4 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::put('/program-latihan-klien/latihan-inti/update/{id}', [ProgramLatihanIntiController::class, 'update'])->name('program.latihan-inti.update');
     Route::post('/program-latihan-klien/latihan-inti/update-isdone', [ProgramLatihanIntiController::class, 'updateIsDone'])->name('program.latihan-inti.update-isdone');
     Route::delete('/program-latihan-klien/latihan-inti/{id}/destroy', [ProgramLatihanIntiController::class, 'destroy'])->name('program.latihan-inti.destroy');
-
-    // Route::get('/program-latihan-klien/latihan-inti/{program}', [ProgramLatihanIntiController::class, 'index'])->name('program.latihan-inti.index');
-
-    Route::get('/program-latihan-klien/pendinginan/{program}', [ProgramLatihanPendinginanController::class, 'index'])->name('program.pendinginan.index');
-
 });

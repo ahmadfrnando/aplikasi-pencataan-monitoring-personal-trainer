@@ -84,6 +84,4 @@ $(function () {
     options_sales_overview
   );
   chart_column_basic.render();
-
-
 })
