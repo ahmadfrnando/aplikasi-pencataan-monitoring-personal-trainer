@@ -45,4 +45,8 @@ class Klien extends Model
     {
         return $this->hasMany(PengukuranKlien::class);
     }
+    public function program_latihan_klien()
+    {
+        return $this->hasMany(ProgramLatihanKlien::class); 
+    }
 }
