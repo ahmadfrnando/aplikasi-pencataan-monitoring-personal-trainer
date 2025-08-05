@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Charts\Monitoring\KomposisiTubuhChart;
 use App\Models\Klien;
+use App\Models\PengukuranKlien;
 use App\Models\ProgramLatihanKlien;
 use Illuminate\Http\Request;
 use Yajra\DataTables\Facades\DataTables;
@@ -50,10 +51,37 @@ class MonitoringController extends Controller
      */
     public function show(KomposisiTubuhChart $chart, string $id)
     {
-        $klien = Klien::findOrFail($id);
+        $klien = $this->getKlien($id);
         $chart = $chart->build($id);
-        return view('pages.monitoring.show', compact('klien', 'chart'));
+        $latestMeasurement = $klien->pengukuran->sortByDesc('tanggal')->first();
+        $stats = [
+            'berat_badan_terakhir' => $latestMeasurement->berat_badan ?? 0,
+            'persentase_lemak_tubuh_terakhir' => $latestMeasurement->body_fat ?? 0,
+            'massa_otot_skeletal_terakhir' => $latestMeasurement->muscle_whole_body ?? 0,
+        ];
+
+        return view('pages.monitoring.show', compact('klien', 'chart', 'stats'));
     }
+
+    private function getKlien($klien_id)
+    {
+        $klien = Klien::findOrFail($klien_id);
+        if (!$klien) {
+            abort(404, 'Klien not found');
+        }
+        return $klien;
+    }
+
+    public function getRiwayatPengukuran(Request $request, string $klien_id)
+    {
+        if ($request->ajax()) {
+            $data = PengukuranKlien::select('*')->where('klien_id', $klien_id)->orderBy('tanggal', 'asc');
+            return DataTables::of($data)
+                ->addIndexColumn()
+                ->make(true);
+        }
+    }
+
 
     /**
      * Show the form for editing the specified resource.

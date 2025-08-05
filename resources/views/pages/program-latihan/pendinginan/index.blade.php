@@ -4,8 +4,11 @@
 <div class="row">
     <a href="{{ route('program-latihan-klien.show', $program->klien->id) }}" class="text-secondary-emphasis mb-4 d-inline"><i class="ti ti-arrow-left"></i> Kembali</a>
     <div class="col-12">
-        <h5 class="card-title fw-semibold mb-4">Informasi Klien</h5>
         <div class="card">
+            <div class="card-header d-flex justify-content-between align-items-center">
+                <h3 class="card-title fw-semibold text-center">Informasi Klien</h3>
+                <a href="{{ route('klien.pengukuran.create',$program->klien->id) }}" class="btn btn-primary"><i class="ti ti-plus"></i> Tambah Pengukuran Baru</a>
+            </div>
             <div class="card-body">
                 <div class="mb-2 row">
                     <div class="d-flex align-items-center">
@@ -66,7 +69,6 @@
                 </div>
             </div>
         </div>
-        <hr />
         <div class="card">
             <div class="card-header d-flex justify-content-between align-items-center">
                 <h3 class="card-title fw-semibold text-center">Semua Latihan Pendinginan</h3>

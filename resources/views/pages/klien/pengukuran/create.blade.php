@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="row">
-    <a href="{{ route('klien.show', $klien->id) }}" class="text-secondary-emphasis mb-4 d-inline"><i class="ti ti-arrow-left"></i> Kembali</a>
+    <a href="{{ url()->previous() }}" class="text-secondary-emphasis mb-4 d-inline"><i class="ti ti-arrow-left"></i> Kembali</a>
     <div class="col-12">
         @if ($errors->any())
         <div class="alert alert-danger" role="alert">
@@ -243,7 +243,7 @@
         const actionUrl = "{{ route('klien.pengukuran.store') }}";
         const successMessage = 'Data berhasil disimpan!';
         const redirectUrl = "{{ route('klien.show', $klien->id) }}";
-        
+
         submitFormAjax(formSelector, actionUrl, successMessage, redirectUrl);
     });
 </script>

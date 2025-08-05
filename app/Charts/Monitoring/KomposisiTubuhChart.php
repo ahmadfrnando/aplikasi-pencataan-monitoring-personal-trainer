@@ -18,7 +18,7 @@ class KomposisiTubuhChart
     {
         $pengukuran = PengukuranKlien::where('klien_id', $klien_id)
             ->orderBy('tanggal', 'asc')
-            ->get(['tanggal', 'berat_badan', 'visceral_fat', 'body_fat', 'weist_circumference']);  // Pastikan mengambil kolom yang diperlukan
+            ->get(['tanggal', 'berat_badan', 'muscle_whole_body', 'body_fat', 'fat_whole_body']);  // Pastikan mengambil kolom yang diperlukan
         // Mengambil tanggal sebagai label untuk sumbu X
         $tanggal = $pengukuran->pluck('tanggal')->map(function ($date) {
             return $date;  // Format tanggal sesuai dengan yang diinginkan
@@ -26,9 +26,9 @@ class KomposisiTubuhChart
 
         // Ambil data untuk masing-masing kolom
         $berat_badan = $pengukuran->pluck('berat_badan');
-        $massa_otot = $pengukuran->pluck('visceral_fat');
-        $lemak_tubuh = $pengukuran->pluck('body_fat');
-        $persentase_lemak = $pengukuran->pluck('weist_circumference');
+        $massa_otot = $pengukuran->pluck('muscle_whole_body');
+        $persentase_lemak = $pengukuran->pluck('body_fat');
+        $lemak_tubuh = $pengukuran->pluck('fat_whole_body');
 
         // Membuat chart dengan data yang diambil
         return $this->chart->lineChart()
