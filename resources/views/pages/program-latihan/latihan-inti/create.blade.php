@@ -41,38 +41,31 @@
             </div>
         </div>
         <div>
-            <ul class="nav nav-pills gap-4 nav-fill my-4">
-                <li class="nav-item bg-muted border border-primary rounded">
-                    <a href="{{ route('program.pemanasan.index', $program->id) }}" class="nav-link" aria-current="page">
-                        <div class="d-flex align-items-center gap-2 justify-content-center text-white">
-                            <span class="bg-white rounded-circle text-primary round-20 hstack justify-content-center">
-                                1
-                            </span>
-                            Pemanasan
-                        </div>
-                    </a>
-                </li>
-                <li class="nav-item rounded">
-                    <a href="{{ route('program.latihan-inti.index', $program->id) }}" class="nav-link active">
-                        <div class="d-flex align-items-center gap-2 justify-content-center text-white">
-                            <span class="bg-white rounded-circle text-primary round-20 hstack justify-content-center">
-                                2
-                            </span>
-                            Latihan Inti
-                        </div>
-                    </a>
-                </li>
-                <li class="nav-item bg-muted rounded">
-                    <a href="{{ route('program.pendinginan.index', $program->id) }}" class="nav-link">
-                        <div class="d-flex align-items-center gap-2 justify-content-center text-white">
-                            <span class="bg-white rounded-circle text-primary round-20 hstack justify-content-center">
-                                3
-                            </span>
-                            Pendinginan
-                        </div>
-                    </a>
-                </li>
-            </ul>
+            <div class="bs-stepper">
+                <div class="bs-stepper-header" role="tablist">
+                    <!-- your steps here -->
+                    <div class="step">
+                        <a href="{{ route('program.pemanasan.index', $program->id)  }}" class="step-trigger" role="tab" aria-controls="logins-part" id="logins-part-trigger">
+                            <span class="bs-stepper-circle">1</span>
+                            <span class="bs-stepper-label">Pemanasan</span>
+                        </a>
+                    </div>
+                    <div class="line"></div>
+                    <div class="step active">
+                        <a href="{{ route('program.latihan-inti.index', $program->id) }}" class="step-trigger" role="tab" aria-controls="information-part" id="information-part-trigger">
+                            <span class="bs-stepper-circle">2</span>
+                            <span class="bs-stepper-label">Latihan Inti</span>
+                        </a>
+                    </div>
+                    <div class="line"></div>
+                    <div class="step">
+                        <a href="{{ route('program.pendinginan.index', $program->id) }}" class="step-trigger" role="tab" aria-controls="information-part" id="information-part-trigger">
+                            <span class="bs-stepper-circle">3</span>
+                            <span class="bs-stepper-label">Pendinginan</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
         </div>
         <hr />
         <div class="card">

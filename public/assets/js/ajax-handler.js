@@ -1,4 +1,5 @@
 function submitFormAjax(formSelector, actionUrl, successMessage, redirectUrl) {
+    console.log('berhasil');
     $(formSelector).on('submit', function(e) {
         e.preventDefault();
         

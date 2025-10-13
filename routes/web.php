@@ -9,7 +9,9 @@ use App\Http\Controllers\Auth\VerifyEmailController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\KlienController;
+use App\Http\Controllers\LaporanController;
 use App\Http\Controllers\MonitoringController;
+use App\Http\Controllers\PengaturanController;
 use App\Http\Controllers\PengukuranKlienController;
 use App\Http\Controllers\ProgramLatihanController;
 use App\Http\Controllers\ProgramLatihanIntiController;
@@ -71,6 +73,12 @@ Route::middleware(['auth', 'verified'])->group(function () {
     })->name('dashboard');
 
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
+
+    Route::resource('/pengaturan', PengaturanController::class);
+
+    Route::get('/laporan', [LaporanController::class, 'index'])->name('laporan');
+    Route::get('/laporan/cetak-pengukuran/{id}', [LaporanController::class, 'cetakPengukuran'])->name('laporan.cetak-pengukuran');
+    Route::get('/laporan/cetak-program-latihan/{id}', [LaporanController::class, 'cetakProgramLatihan'])->name('laporan.cetak-program-latihan');
 
     Route::resource('/klien', KlienController::class);
     Route::get('/pengukuran-klien/{klien}/create', [PengukuranKlienController::class, 'create'])->name('klien.pengukuran.create');

@@ -127,7 +127,8 @@
         let successMessage = 'Data berhasil disimpan!';
         let redirectUrl = "{{ route('program-latihan-klien.show', $klien->id) }}";
         let tableSelector = '.data-table';
-        submitFormAjaxModal(formSelector, actionUrl, successMessage, modal);
+        // submitFormAjaxModal(formSelector, actionUrl, successMessage, modal);
+        submitFormAjax(formSelector, actionUrl, successMessage, redirectUrl);
 
         $(document).on('click', '#btnEdit', function() {
             let formSelectorEdit = '#updateForm';

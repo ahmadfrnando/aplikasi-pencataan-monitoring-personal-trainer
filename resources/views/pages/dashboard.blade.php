@@ -19,7 +19,7 @@
         <div class="stat-card">
             <div class="d-flex align-items-center">
                 <div class="mr-3">
-                    <i class="fas fa-shopping-cart stat-icon"></i>
+                    <i class="fas fa-dumbbell stat-icon"></i>
                 </div>
                 <div class="ms-2">
                     <div class="stat-value">{{ $stats['total_klien_bulking'] }} Orang</div>
@@ -32,7 +32,7 @@
         <div class="stat-card">
             <div class="d-flex align-items-center">
                 <div class="mr-3">
-                    <i class="fas fa-dollar-sign stat-icon"></i>
+                    <i class="fas fa-fire stat-icon"></i>
                 </div>
                 <div class="ms-2">
                     <div class="stat-value">{{ $stats['total_klien_cutting'] }} Orang</div>
