@@ -94,6 +94,9 @@
                                     Alat
                                 </th>
                                 <th scope="col" class=" text-muted">
+                                    Set
+                                </th>
+                                <th scope="col" class=" text-muted">
                                     Notes
                                 </th>
                                 <th scope="col" class=" text-muted">
@@ -112,6 +115,7 @@
                                 <td class="">{{ $value->target_otot }}</td>
                                 <td class="">{{ $value->gerakan }}</td>
                                 <td class="">{{ $value->alat }}</td>
+                                <td class="">{{ $value->set }}</td>
                                 <td class="">{{ $value->catatan }}</td>
                                 <td class="">
                                     <input class="form-check-input primary checkbox" type="checkbox" id="is_done" name="is_done" style="background-color: #1e4db7 !important;" data-id="{{ $value->id }}" {{ $value->is_done == 1 ? 'checked' : '' }}>
