@@ -93,7 +93,7 @@
                                         <td class="px-0 text-dark fw-medium text-center">
                                             {{ ($klien->is_mengurangi_fat) ? '<': '>' }}
                                         </td>
-                                        <td class="px-0 text-dark fw-medium text-center {{ $pengukuran->no_urut_pengukuran > 1 ? ($pengukuran->isSesuaiTarget('weist_circumference', $pengukuran->weist_circumference)) : ''}}"> {{ $pengukuran->weist_circumference }} cm
+                                        <td class="px-0 text-dark fw-medium text-center {{ $pengukuran->no_urut_pengukuran > 1 ? ($pengukuran->isSesuaiTarget('weist_circumference', $pengukuran->weist_circumference)) : ''}}"> {{ $pengukuran->weist_circumference }}
                                             <button
                                                 type="button"
                                                 class="btn btn-sm btn-link edit-btn"

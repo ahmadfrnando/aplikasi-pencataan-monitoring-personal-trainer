@@ -127,7 +127,7 @@
                         <td>
                             {{ ($klien->is_mengurangi_fat) ? '<': '>' }}
                         </td>
-                        <td class=" {{ $pengukuran->no_urut_pengukuran > 1 ? ($pengukuran->isSesuaiTarget('weist_circumference', $pengukuran->weist_circumference)) : ''}}"> {{ $pengukuran->weist_circumference }} cm
+                        <td class=" {{ $pengukuran->no_urut_pengukuran > 1 ? ($pengukuran->isSesuaiTarget('weist_circumference', $pengukuran->weist_circumference)) : ''}}"> {{ $pengukuran->weist_circumference }}
                         </td>
                     </tr>
                     <tr>
