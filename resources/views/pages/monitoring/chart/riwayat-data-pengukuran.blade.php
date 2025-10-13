@@ -17,8 +17,8 @@
                             <th class="text-uppercase text-secondary font-weight-bolder opacity-7">Tanggal</th>
                             <th class="text-uppercase text-secondary font-weight-bolder opacity-7">Berat Badan</th>
                             <th class="text-uppercase text-secondary font-weight-bolder opacity-7">Lemak Tubuh</th>
-                            <th class="text-uppercase text-secondary font-weight-bolder opacity-7">Lingkar Pinggang</th>
-                            <th class="text-uppercase text-secondary font-weight-bolder opacity-7">Lingkar Panggul</th>
+                            <th class="text-uppercase text-secondary font-weight-bolder opacity-7">BMI</th>
+                            <th class="text-uppercase text-secondary font-weight-bolder opacity-7">Weist Circumference</th>
                         </tr>
                     </thead>
                     <tbody class="text-sm">

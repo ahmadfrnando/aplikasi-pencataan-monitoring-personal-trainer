@@ -83,18 +83,12 @@
                 }
             },
            {
-                data: 'panggul',
-                name: 'panggul',
-                render: function(data, type, row) {
-                    return data ? data + ' Cm' : '-';
-                }
+                data: 'bmi',
+                name: 'bmi'
             },
-            {
-                data: 'pinggang',
-                name: 'pinggang',
-                render: function(data, type, row) {
-                    return data ? data + ' Cm' : '-';
-                }
+           {
+                data: 'weist_circumference',
+                name: 'weist_circumference'
             },
         ];
         var table = initializeDataTableParams(selector, route, columns);
