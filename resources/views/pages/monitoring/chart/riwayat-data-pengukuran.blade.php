@@ -17,8 +17,8 @@
                             <th class="text-uppercase text-secondary font-weight-bolder opacity-7">Tanggal</th>
                             <th class="text-uppercase text-secondary font-weight-bolder opacity-7">Berat Badan</th>
                             <th class="text-uppercase text-secondary font-weight-bolder opacity-7">Lemak Tubuh</th>
-                            <th class="text-uppercase text-secondary font-weight-bolder opacity-7">Otot Skeletal</th>
-                            <th class="text-uppercase text-secondary font-weight-bolder opacity-7">Linngkar Pinggang</th>
+                            <th class="text-uppercase text-secondary font-weight-bolder opacity-7">Lingkar Pinggang</th>
+                            <th class="text-uppercase text-secondary font-weight-bolder opacity-7">Lingkar Panggul</th>
                         </tr>
                     </thead>
                     <tbody class="text-sm">

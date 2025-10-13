@@ -82,11 +82,11 @@
                     return data ? data + ' %' : '-';
                 }
             },
-            {
-                data: 'muscle_whole_body',
-                name: 'muscle_whole_body',
+           {
+                data: 'panggul',
+                name: 'panggul',
                 render: function(data, type, row) {
-                    return data ? data + ' %' : '-';
+                    return data ? data + ' Cm' : '-';
                 }
             },
             {

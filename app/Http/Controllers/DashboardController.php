@@ -34,18 +34,19 @@ class DashboardController extends Controller
         $dataTableKlienTerbaru = [
             'data' => $this->getTableKlienTerbaru(),
         ];
+
         return view('pages.dashboard', compact('stats', 'dataPengukuranTerbaru', 'dataTableKlienTerbaru'));
     }
 
     private function getStats()
     {
-        $data = $this->klien->selectRaw('count(*) as total_klien, count(is_mengurangi_fat) as total_klien_bulking, count(!is_mengurangi_fat) as total_klien_cutting')
+        $data = $this->klien->selectRaw('count(*) as total_klien, count(CASE WHEN is_mengurangi_fat = 1 THEN 1 END) as total_klien_bulking, count(CASE WHEN is_mengurangi_fat = 0 THEN 1 END) as total_klien_cutting')
             ->first()
             ->toArray();
         return [
-            'total_klien' => $data['total_klien'],
-            'total_klien_bulking' => $data['total_klien_bulking'],
-            'total_klien_cutting' => $data['total_klien_cutting'],
+            'total_klien' => (int)$data['total_klien'],
+            'total_klien_bulking' => (int)$data['total_klien_bulking'],
+            'total_klien_cutting' => (int)$data['total_klien_cutting'],
         ];
     }
 

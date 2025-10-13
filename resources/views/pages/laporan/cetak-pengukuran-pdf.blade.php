@@ -48,7 +48,7 @@
 <body>
     <div>
         @if($data && $data->count() > 0)
-        <table style="margin-bottom: 20px;">
+        <table class="page-break" style="margin-bottom: 20px;">
             <thead>
                 <tr>
                     <th colspan="2">Informasi Klien</th>
@@ -268,7 +268,7 @@
                     </tr>
                     <tr>
                         <td colspan="3">
-                            LEHER
+                            Leher
                         </td>
                         <td class="{{ $pengukuran->no_urut_pengukuran > 1 ? ($pengukuran->isSesuaiTarget('leher', $pengukuran->leher)) : ''}}"> {{ $pengukuran->leher }} cm
                         </td>
