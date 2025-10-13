@@ -40,7 +40,7 @@ class DashboardController extends Controller
 
     private function getStats()
     {
-        $data = $this->klien->selectRaw('count(*) as total_klien, count(CASE WHEN is_mengurangi_fat = 1 THEN 1 END) as total_klien_bulking, count(CASE WHEN is_mengurangi_fat = 0 THEN 1 END) as total_klien_cutting')
+        $data = $this->klien->selectRaw('count(*) as total_klien, count(CASE WHEN is_mengurangi_fat = 0 THEN 1 END) as total_klien_bulking, count(CASE WHEN is_mengurangi_fat = 1 THEN 1 END) as total_klien_cutting')
             ->first()
             ->toArray();
         return [
