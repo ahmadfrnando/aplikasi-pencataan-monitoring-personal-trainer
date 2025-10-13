@@ -296,6 +296,43 @@ function deleteData(url, table) {
     });
 }
 
+function deleteDataV2(url, redirectUrl) {
+    Swal.fire({
+        title: 'Apakah anda yakin?',
+        text: "Data yang dihapus tidak dapat dikembalikan!",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Ya, hapus!'
+    }).then((result) => {
+        if (result.isConfirmed) {
+            $.ajaxSetup({
+                    headers: {
+                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                    }
+                });
+            $.ajax({
+                url: url,
+                method: 'DELETE',
+                success: function(response) {
+                    // Swal.fire('Berhasil', response.message, 'success');
+                    location.href = redirectUrl;
+                },
+                error: function(xhr) {
+                    Swal.fire('Gagal', xhr.responseJSON?.message || 'Terjadi kesalahan.', 'error');
+                }
+            }).always(function() {
+                $.ajaxSetup({
+                    headers: {}
+                });
+            });
+        }
+    }).catch(function(e) {
+        e.preventDefault();
+    });
+}
+
 function initializeDataTable(tableSelector, ajaxRoute, columnsConfig) {
   var table = $(tableSelector).DataTable({
     destroy: true,

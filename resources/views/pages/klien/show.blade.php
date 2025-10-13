@@ -15,7 +15,7 @@
                         <a href="{{ route('klien.edit', $klien->id) }}" class="btn btn-warning"><i class="ti ti-pencil"></i></a>
                     </div>
                     <div>
-                        <a href="{{ route('klien.destroy', $klien->id) }}" class="btn btn-danger"><i class="ti ti-trash"></i></a>
+                        <button type="button" data-id="{{ $klien->id }}" id="delete" class="btn btn-danger"><i class="ti ti-trash"></i></button>
                     </div>
                     <div>
                         <a href="{{ route('klien.pengukuran.create', $klien->id) }}" class="btn btn-primary">Tambah Pengukuran Baru</a>
@@ -669,7 +669,14 @@
                 }
             });
         });
-
+        
+    });
+    $(document).on('click', '#delete', function() {
+        var id = $(this).data('id');
+        var route = "{{ route('klien.destroy', ':id') }}";
+        route = route.replace(':id', id);
+        var redirectUrl = "{{ route('klien.index') }}";
+        deleteDataV2(route, redirectUrl);
     });
 </script>
 @endpush
