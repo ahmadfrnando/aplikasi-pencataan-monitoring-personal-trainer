@@ -41,7 +41,7 @@
                             @enderror
                         </div>
                         <div class="col-md-3 mb-3">
-                            <label for="weist_circumference" class="form-label">Weist Circumference(cm)</label>
+                            <label for="weist_circumference" class="form-label">WHR(cm)</label>
                             <input type="number" name="weist_circumference" value="{{ old('weist_circumference') }}" class="form-control @error('weist_circumference') is-invalid @enderror" id="weist_circumference" aria-describedby="weist_circumference" step="any" required>
                             @error('weist_circumference')
                             <div class="invalid-feedback">{{ $message }}</div>

@@ -88,7 +88,7 @@
                                     </tr>
                                     <tr>
                                         <td colspan="2" class="px-0 text-dark fw-medium text-center">
-                                            WAIST CIRCUMFERENCE
+                                            WHR
                                         </td>
                                         <td class="px-0 text-dark fw-medium text-center">
                                             {{ ($klien->is_mengurangi_fat) ? '<': '>' }}

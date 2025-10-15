@@ -18,7 +18,7 @@
                             <th class="text-uppercase text-secondary font-weight-bolder opacity-7">Berat Badan</th>
                             <th class="text-uppercase text-secondary font-weight-bolder opacity-7">Lemak Tubuh</th>
                             <th class="text-uppercase text-secondary font-weight-bolder opacity-7">BMI</th>
-                            <th class="text-uppercase text-secondary font-weight-bolder opacity-7">Weist Circumference</th>
+                            <th class="text-uppercase text-secondary font-weight-bolder opacity-7">WHR</th>
                         </tr>
                     </thead>
                     <tbody class="text-sm">
