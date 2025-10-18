@@ -9,18 +9,25 @@ use App\Http\Controllers\Auth\VerifyEmailController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\KlienController;
+use App\Http\Controllers\Admin\TrainerController;
+use App\Http\Controllers\Admin\KlienController as AdminKlienController;
 use App\Http\Controllers\LaporanController;
+use App\Http\Controllers\Admin\LaporanController as AdminLaporanController;
 use App\Http\Controllers\MonitoringController;
+use App\Http\Controllers\Admin\MonitoringController as AdminMonitoringController;
 use App\Http\Controllers\PengaturanController;
 use App\Http\Controllers\PengukuranKlienController;
 use App\Http\Controllers\ProgramLatihanController;
 use App\Http\Controllers\ProgramLatihanIntiController;
 use App\Http\Controllers\ProgramLatihanPemanasanController;
 use App\Http\Controllers\ProgramLatihanPendinginanController;
+use App\Http\Controllers\Admin\DashboardController as AdminDashboardController;
 use App\Models\ProgramPemanasan;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Foundation\Auth\EmailVerificationRequest;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -31,6 +38,18 @@ use Illuminate\Http\Request;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
+
+Route::get('/debug-float', function () {
+    $val = DB::table('klien')->value('target_berat_badan'); // ganti field float nyata di tabel kamu
+    return [
+        'value' => $val,
+        'php_version' => PHP_VERSION,
+        'locale' => setlocale(LC_NUMERIC, 0),
+        'precision' => ini_get('precision'),
+        'serialize_precision' => ini_get('serialize_precision'),
+    ];
+});
+
 
 Route::middleware(['web'])->group(function () {
     // route yang ada
@@ -66,6 +85,17 @@ Route::get('verify-email/{id}/{hash}', VerifyEmailController::class)
 Route::post('email/verification-notification', [EmailVerificationNotificationController::class, 'store'])
     ->middleware('throttle:6,1')
     ->name('verification.send');
+
+Route::middleware(['auth', 'admin'])->name('admin.')->prefix('admin')->group(function () {
+    Route::get('/dashboard', [AdminDashboardController::class, 'index'])->name('dashboard');
+    Route::resource('/klien', AdminKlienController::class);
+    Route::resource('/monitoring', AdminMonitoringController::class);
+    Route::resource('/trainer', TrainerController::class);
+    Route::get('/monitoring/{pengukuran}/riwayat-data-pengukuran', [AdminMonitoringController::class, 'getRiwayatPengukuran'])->name('monitoring.riwayat-data-pengukuran');
+    Route::get('/laporan', [AdminLaporanController::class, 'index'])->name('laporan');
+    Route::get('/laporan/cetak-pengukuran/{id}', [AdminLaporanController::class, 'cetakPengukuran'])->name('laporan.cetak-pengukuran');
+    Route::get('/laporan/cetak-program-latihan/{id}', [AdminLaporanController::class, 'cetakProgramLatihan'])->name('laporan.cetak-program-latihan');
+});
 
 Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('/dashboard', function () {

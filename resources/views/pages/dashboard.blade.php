@@ -60,7 +60,9 @@
                             <h6 class="mb-1">{{ $pengukuran['nama'] ?? '' }}</h6>
                             <p class="text-muted small mb-0">{{ $pengukuran['nama_program_latihan'] ?? '' }}</p>
                         </div>
-                        <small class="text-muted">{{ $pengukuran['waktu_terakhir'] ?? '' }}</small>
+                        <div class="d-none d-md-block">
+                            <small class="text-muted">{{ $pengukuran['waktu_terakhir'] ?? '' }}</small>
+                        </div>
                     </div>
                     @endforeach
                 </div>

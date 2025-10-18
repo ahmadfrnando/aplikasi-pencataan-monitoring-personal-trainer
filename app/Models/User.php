@@ -21,6 +21,9 @@ class User extends Authenticatable implements MustVerifyEmail
         'name',
         'email',
         'password',
+        'is_admin',
+        'jenis_kelamin',
+        'email_verified_at'
     ];
 
     /**
@@ -42,4 +45,22 @@ class User extends Authenticatable implements MustVerifyEmail
         'email_verified_at' => 'datetime',
         'password' => 'hashed',
     ];
+
+    public function klien()
+    {
+        return $this->hasMany(Klien::class);
+    }
+
+    public function getPhotoProfile()
+    {
+        switch ($this->jenis_kelamin) {
+            case 'Laki-laki':
+                $path = 'assets/images/profile/user-1.jpg';
+                break;
+            case 'Perempuan':
+                $path = 'assets/images/profile/user-2.jpg';
+                break;
+        }
+        return $path;
+    }
 }

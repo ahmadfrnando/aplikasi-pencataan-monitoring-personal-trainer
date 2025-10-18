@@ -13,6 +13,12 @@ class Klien extends Model
 
     protected $guarded = [];
 
+    protected $casts = [
+        'tinggi_badan' => 'float',
+        'berat_badan' => 'float',
+        'target_berat_badan' => 'float',
+    ];
+
     const TARGET_MENGURANGIN = true;
     const TARGET_MENAIKKAN = false;
 
@@ -38,7 +44,7 @@ class Klien extends Model
 
     public function trainer()
     {
-        return $this->belongsTo(User::class);
+        return $this->belongsTo(User::class, 'user_id');
     }
 
     public function pengukuran()

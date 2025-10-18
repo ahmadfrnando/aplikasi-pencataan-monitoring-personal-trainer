@@ -198,7 +198,7 @@
         </aside>
         <div class="body-wrapper">
             <header class="app-header">
-                <nav class="navbar navbar-expand-lg navbar-light">
+                <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
                     <ul class="navbar-nav">
                         <li class="nav-item d-block d-xl-none">
                             <a class="nav-link sidebartoggler " id="headerCollapse" href="javascript:void(0)">
@@ -255,8 +255,8 @@
                     <!--  Row 1 -->
                     @yield('content')
                     <div class="py-6 px-6 text-center">
-                        <p class="mb-0 fs-4">Design and Developed by <a href="{{ route('dashboard') }}"
-                                class="pe-1 text-primary text-decoration-underline">Wrappixel.com</a> Distributed by <a href="https://themewagon.com" target="_blank">ThemeWagon</a></p>
+                        <p class="mb-0 fs-4">Admin Panel - Design and Developed by <a href="{{ route('dashboard') }}"
+                                class="pe-1 text-primary text-decoration-underline">Trainer Track</a></p>
                     </div>
                 </div>
             </div>
