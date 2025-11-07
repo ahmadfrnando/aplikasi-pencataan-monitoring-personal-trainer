@@ -17,7 +17,7 @@ class LaporanController extends Controller
             return DataTables::of($data)
                 ->addIndexColumn()
                 ->addColumn('action', function ($row) {
-                    $btn = '<a href="' . route('laporan.cetak-pengukuran', $row->id) . '" id="cetakLaporan" class="btn btn-outline-primary" target="_blank"><i class="ti ti-file-chart"></i> Cetak Pengukuran</a>';
+                    $btn = '<a href="' . route('admin.laporan.cetak-pengukuran', $row->id) . '" id="cetakLaporan" class="btn btn-outline-primary" target="_blank"><i class="ti ti-file-chart"></i> Cetak Pengukuran</a>';
                     return $btn;
                 })
                 ->addColumn('nama_pt', function ($row) {

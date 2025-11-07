@@ -137,7 +137,7 @@
                         <td>
                             {{ ($klien->is_mengurangi_fat) ? '<': '>' }}
                         </td>
-                        <td class="{{ $pengukuran->no_urut_pengukuran > 1 ? ($pengukuran->isSesuaiTarget('body_fat', $pengukuran->body_fat)) : ''}}"> {{ $pengukuran->body_fat }} kg
+                        <td class="{{ $pengukuran->no_urut_pengukuran > 1 ? ($pengukuran->isSesuaiTarget('body_fat', $pengukuran->body_fat)) : ''}}"> {{ $pengukuran->body_fat }} %
                         </td>
                     </tr>
                     <tr>

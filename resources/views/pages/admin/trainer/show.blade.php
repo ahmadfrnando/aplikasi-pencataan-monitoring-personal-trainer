@@ -111,7 +111,7 @@
                                         <td class="px-0 text-dark fw-medium text-center">
                                             {{ ($klien->is_mengurangi_fat) ? '<': '>' }}
                                         </td>
-                                        <td class="px-0 text-dark fw-medium text-center {{ $pengukuran->no_urut_pengukuran > 1 ? ($pengukuran->isSesuaiTarget('body_fat', $pengukuran->body_fat)) : ''}}"> {{ $pengukuran->body_fat }} kg
+                                        <td class="px-0 text-dark fw-medium text-center {{ $pengukuran->no_urut_pengukuran > 1 ? ($pengukuran->isSesuaiTarget('body_fat', $pengukuran->body_fat)) : ''}}"> {{ $pengukuran->body_fat }} %
                                             <button
                                                 type="button"
                                                 class="btn btn-sm btn-link edit-btn"

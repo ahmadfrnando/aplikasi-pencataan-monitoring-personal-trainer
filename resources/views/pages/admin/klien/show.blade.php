@@ -70,6 +70,8 @@
                                         <td class="px-0 text-dark fw-medium text-center">
                                             {{ ($klien->is_mengurangi_fat) ? '<': '>' }}
                                         </td>
+                                        <td class="px-0 text-dark fw-medium text-center {{ $pengukuran->no_urut_pengukuran > 1 ? ($pengukuran->isSesuaiTarget('berat_badan', $pengukuran->berat_badan)) : ''}}"> {{ $pengukuran->berat_badan }} kg
+                                        </td>
                                     </tr>
                                     <tr>
                                         <td colspan="2" class="px-0 text-dark fw-medium text-center">
@@ -77,6 +79,8 @@
                                         </td>
                                         <td class="px-0 text-dark fw-medium text-center">
                                             {{ ($klien->is_mengurangi_fat) ? '<': '>' }}
+                                        </td>
+                                        <td class="px-0 text-dark fw-medium text-center {{ $pengukuran->no_urut_pengukuran > 1 ? ($pengukuran->isSesuaiTarget('weist_circumference', $pengukuran->weist_circumference)) : ''}}"> {{ $pengukuran->weist_circumference }}
                                         </td>
                                     </tr>
                                     <tr>
@@ -86,6 +90,8 @@
                                         <td class="px-0 text-dark fw-medium text-center">
                                             {{ ($klien->is_mengurangi_fat) ? '<': '>' }}
                                         </td>
+                                        <td class="px-0 text-dark fw-medium text-center {{ $pengukuran->no_urut_pengukuran > 1 ? ($pengukuran->isSesuaiTarget('body_fat', $pengukuran->body_fat)) : ''}}"> {{ $pengukuran->body_fat }} %
+                                        </td>
                                     </tr>
                                     <tr>
                                         <td colspan="2" class="px-0 text-dark fw-medium text-center">
@@ -93,6 +99,8 @@
                                         </td>
                                         <td class="px-0 text-dark fw-medium text-center">
                                             {{ ($klien->is_mengurangi_fat) ? '<': '>' }}
+                                        </td>
+                                        <td class="px-0 text-dark fw-medium text-center {{ $pengukuran->no_urut_pengukuran > 1 ? ($pengukuran->isSesuaiTarget('visceral_fat', $pengukuran->visceral_fat)) : ''}}"> {{ $pengukuran->visceral_fat }}
                                         </td>
                                     </tr>
                                     <tr>
@@ -103,6 +111,8 @@
                                         <td class="px-0 text-dark fw-medium text-center">
                                             {{ ($klien->is_mengurangi_fat) ? '<': '>' }}
                                         </td>
+                                        <td class="px-0 text-dark fw-medium text-center {{ $pengukuran->no_urut_pengukuran > 1 ? ($pengukuran->isSesuaiTarget('bmi', $pengukuran->bmi)) : ''}}"> {{ $pengukuran->bmi }}
+                                        </td>
                                     </tr>
                                     <tr>
                                         <td colspan="2" class="px-0 text-dark fw-medium text-center">
@@ -111,6 +121,8 @@
 
                                         <td class="px-0 text-dark fw-medium text-center">
                                             {{ ($klien->is_mengurangi_fat) ? '<': '>' }}
+                                        </td>
+                                        <td class="px-0 text-dark fw-medium text-center {{ $pengukuran->no_urut_pengukuran > 1 ? ($pengukuran->isSesuaiTarget('body_age', $pengukuran->body_age)) : ''}}"> {{ $pengukuran->body_age }}
                                         </td>
                                     </tr>
                                     <tr>
@@ -124,6 +136,8 @@
                                         <td class="px-0 text-dark fw-medium text-center">
                                             {{ ($klien->is_mengurangi_fat) ? '<': '>' }}
                                         </td>
+                                        <td class="px-0 text-dark fw-medium text-center {{ $pengukuran->no_urut_pengukuran > 1 ? ($pengukuran->isSesuaiTarget('fat_whole_body', $pengukuran->fat_whole_body)) : ''}}"> {{ $pengukuran->fat_whole_body }} %
+                                        </td>
                                     </tr>
                                     <tr>
                                         <td class="px-0 text-dark fw-medium text-center">
@@ -132,6 +146,8 @@
 
                                         <td class="px-0 text-dark fw-medium text-center">
                                             {{ ($klien->is_mengurangi_fat) ? '<': '>' }}
+                                        </td>
+                                        <td class="px-0 text-dark fw-medium text-center {{ $pengukuran->no_urut_pengukuran > 1 ? ($pengukuran->isSesuaiTarget('fat_trunk', $pengukuran->fat_trunk)) : ''}}"> {{ $pengukuran->fat_trunk }} %
                                         </td>
                                     </tr>
                                     <tr>
@@ -142,6 +158,8 @@
                                         <td class="px-0 text-dark fw-medium text-center">
                                             {{ ($klien->is_mengurangi_fat) ? '<': '>' }}
                                         </td>
+                                        <td class="px-0 text-dark fw-medium text-center {{ $pengukuran->no_urut_pengukuran > 1 ? ($pengukuran->isSesuaiTarget('fat_arm', $pengukuran->fat_arm)) : ''}}"> {{ $pengukuran->fat_arm }} %
+                                        </td>
                                     </tr>
                                     <tr>
                                         <td class="px-0 text-dark fw-medium text-center">
@@ -150,6 +168,8 @@
 
                                         <td class="px-0 text-dark fw-medium text-center">
                                             {{ ($klien->is_mengurangi_fat) ? '<': '>' }}
+                                        </td>
+                                        <td class="px-0 text-dark fw-medium text-center {{ $pengukuran->no_urut_pengukuran > 1 ? ($pengukuran->isSesuaiTarget('fat_leg', $pengukuran->fat_leg)) : ''}}"> {{ $pengukuran->fat_leg }} %
                                         </td>
                                     </tr>
                                     <tr>
@@ -163,6 +183,8 @@
                                         <td class="px-0 text-dark fw-medium text-center">
                                             {{ ($klien->is_menaikkan_muscle) ? '>': '<' }}
                                         </td>
+                                        <td class="px-0 text-dark fw-medium text-center {{ $pengukuran->no_urut_pengukuran > 1 ? ($pengukuran->isSesuaiTarget('muscle_whole_body', $pengukuran->muscle_whole_body)) : ''}}"> {{ $pengukuran->muscle_whole_body }} %
+                                        </td>
                                     </tr>
                                     <tr>
                                         <td class="px-0 text-dark fw-medium text-center">
@@ -171,6 +193,8 @@
 
                                         <td class="px-0 text-dark fw-medium text-center">
                                             {{ ($klien->is_menaikkan_muscle) ? '>': '<' }}
+                                        </td>
+                                        <td class="px-0 text-dark fw-medium text-center {{ $pengukuran->no_urut_pengukuran > 1 ? ($pengukuran->isSesuaiTarget('muscle_trunk', $pengukuran->muscle_trunk)) : ''}}"> {{ $pengukuran->muscle_trunk }} %
                                         </td>
                                     </tr>
                                     <tr>
@@ -181,6 +205,8 @@
                                         <td class="px-0 text-dark fw-medium text-center">
                                             {{ ($klien->is_menaikkan_muscle) ? '>': '<' }}
                                         </td>
+                                        <td class="px-0 text-dark fw-medium text-center {{ $pengukuran->no_urut_pengukuran > 1 ? ($pengukuran->isSesuaiTarget('muscle_arm', $pengukuran->muscle_arm)) : ''}}"> {{ $pengukuran->muscle_arm }} %
+                                        </td>
                                     </tr>
                                     <tr>
                                         <td class="px-0 text-dark fw-medium text-center">
@@ -190,10 +216,14 @@
                                         <td class="px-0 text-dark fw-medium text-center">
                                             {{ ($klien->is_menaikkan_muscle) ? '>': '<' }}
                                         </td>
+                                        <td class="px-0 text-dark fw-medium text-center {{ $pengukuran->no_urut_pengukuran > 1 ? ($pengukuran->isSesuaiTarget('muscle_leg', $pengukuran->muscle_leg)) : ''}}"> {{ $pengukuran->muscle_leg }} %
+                                        </td>
                                     </tr>
                                     <tr>
                                         <td colspan="3" class="px-0 text-dark fw-medium text-center">
                                             LEHER
+                                        </td>
+                                        <td class="px-0 text-dark fw-medium text-center {{ $pengukuran->no_urut_pengukuran > 1 ? ($pengukuran->isSesuaiTarget('leher', $pengukuran->leher)) : ''}}"> {{ $pengukuran->leher }} cm
                                         </td>
                                     </tr>
                                     <tr>
@@ -203,10 +233,14 @@
                                         <td colspan="2" class="px-0 text-dark fw-medium text-center">
                                             Kanan
                                         </td>
+                                        <td class="px-0 text-dark fw-medium text-center {{ $pengukuran->no_urut_pengukuran > 1 ? ($pengukuran->isSesuaiTarget('lengan_kanan_atas', $pengukuran->lengan_kanan_atas)) : ''}}"> {{ $pengukuran->lengan_kanan_atas }} cm
+                                        </td>
                                     </tr>
                                     <tr>
                                         <td colspan="2" class="px-0 text-dark fw-medium text-center">
                                             Kiri
+                                        </td>
+                                        <td class="px-0 text-dark fw-medium text-center {{ $pengukuran->no_urut_pengukuran > 1 ? ($pengukuran->isSesuaiTarget('lengan_kiri_atas', $pengukuran->lengan_kiri_atas)) : ''}}"> {{ $pengukuran->lengan_kiri_atas }} cm
                                         </td>
                                     </tr>
                                     <tr>
@@ -216,30 +250,42 @@
                                         <td colspan="2" class="px-0 text-dark fw-medium text-center">
                                             Kanan
                                         </td>
+                                        <td class="px-0 text-dark fw-medium text-center {{ $pengukuran->no_urut_pengukuran > 1 ? ($pengukuran->isSesuaiTarget('lengan_kanan_bawah', $pengukuran->lengan_kanan_bawah)) : ''}}"> {{ $pengukuran->lengan_kanan_bawah }} cm
+                                        </td>
                                     </tr>
                                     <tr>
                                         <td colspan="2" class="px-0 text-dark fw-medium text-center">
                                             Kiri
+                                        </td>
+                                        <td class="px-0 text-dark fw-medium text-center {{ $pengukuran->no_urut_pengukuran > 1 ? ($pengukuran->isSesuaiTarget('lengan_kiri_bawah', $pengukuran->lengan_kiri_bawah)) : ''}}"> {{ $pengukuran->lengan_kiri_bawah }} cm
                                         </td>
                                     </tr>
                                     <tr>
                                         <td colspan="3" class="px-0 text-dark fw-medium text-center">
                                             Dada
                                         </td>
+                                        <td class="px-0 text-dark fw-medium text-center {{ $pengukuran->no_urut_pengukuran > 1 ? ($pengukuran->isSesuaiTarget('dada', $pengukuran->dada)) : ''}}"> {{ $pengukuran->dada }} cm
+                                        </td>
                                     </tr>
                                     <tr>
                                         <td colspan="3" class="px-0 text-dark fw-medium text-center">
                                             Pinggang
+                                        </td>
+                                        <td class="px-0 text-dark fw-medium text-center {{ $pengukuran->no_urut_pengukuran > 1 ? ($pengukuran->isSesuaiTarget('pinggang', $pengukuran->pinggang)) : ''}}"> {{ $pengukuran->pinggang }} cm
                                         </td>
                                     </tr>
                                     <tr>
                                         <td colspan="3" class="px-0 text-dark fw-medium text-center">
                                             Perut
                                         </td>
+                                        <td class="px-0 text-dark fw-medium text-center {{ $pengukuran->no_urut_pengukuran > 1 ? ($pengukuran->isSesuaiTarget('perut', $pengukuran->perut)) : ''}}"> {{ $pengukuran->perut }} cm
+                                        </td>
                                     </tr>
                                     <tr>
                                         <td colspan="3" class="px-0 text-dark fw-medium text-center">
                                             Panggul
+                                        </td>
+                                        <td class="px-0 text-dark fw-medium text-center {{ $pengukuran->no_urut_pengukuran > 1 ? ($pengukuran->isSesuaiTarget('panggul', $pengukuran->panggul)) : ''}}"> {{ $pengukuran->panggul }} cm
                                         </td>
                                     </tr>
                                     <tr>
@@ -249,10 +295,14 @@
                                         <td colspan="2" class="px-0 text-dark fw-medium text-center">
                                             Kanan
                                         </td>
+                                        <td class="px-0 text-dark fw-medium text-center {{ $pengukuran->no_urut_pengukuran > 1 ? ($pengukuran->isSesuaiTarget('paha_kanan', $pengukuran->paha_kanan)) : ''}}"> {{ $pengukuran->paha_kanan }} cm
+                                        </td>
                                     </tr>
                                     <tr>
                                         <td colspan="2" class="px-0 text-dark fw-medium text-center">
                                             Kiri
+                                        </td>
+                                        <td class="px-0 text-dark fw-medium text-center {{ $pengukuran->no_urut_pengukuran > 1 ? ($pengukuran->isSesuaiTarget('paha_kiri', $pengukuran->paha_kiri)) : ''}}"> {{ $pengukuran->paha_kiri }} cm
                                         </td>
                                     </tr>
                                     <tr>
@@ -262,10 +312,14 @@
                                         <td colspan="2" class="px-0 text-dark fw-medium text-center">
                                             Kanan
                                         </td>
+                                        <td class="px-0 text-dark fw-medium text-center {{ $pengukuran->no_urut_pengukuran > 1 ? ($pengukuran->isSesuaiTarget('betis_kanan', $pengukuran->betis_kanan)) : ''}}"> {{ $pengukuran->betis_kanan }} cm
+                                        </td>
                                     </tr>
                                     <tr>
                                         <td colspan="2" class="px-0 text-dark fw-medium text-center">
                                             Kiri
+                                        </td>
+                                        <td class="px-0 text-dark fw-medium text-center {{ $pengukuran->no_urut_pengukuran > 1 ? ($pengukuran->isSesuaiTarget('betis_kiri', $pengukuran->betis_kiri)) : ''}}"> {{ $pengukuran->betis_kiri }} cm
                                         </td>
                                     </tr>
                                 </tbody>
